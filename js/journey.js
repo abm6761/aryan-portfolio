@@ -372,6 +372,10 @@ function setTheme(theme, save) {
 themeToggle.addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light', true));
 setTheme(document.documentElement.dataset.theme || 'dark', false);
 
+// the experience jump menu closes itself once a destination is picked, rather than sitting open over the page
+const navExperience = document.querySelector('.nav-experience');
+navExperience?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => navExperience.removeAttribute('open')));
+
 // motion control
 const toggle = document.getElementById('motion-toggle');
 toggle.addEventListener('click', () => {

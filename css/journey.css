@@ -60,7 +60,7 @@ h1, h2, h3, .lede, .brand-name, .label, .nav-links, .theme-toggle, .rail a, .scr
 .grid-pair p, .dialog-evidence, .dialog-lede, .path time, .path b, .motion-toggle, .contact-links, .stage-note, .thing-name,
 .scene-hint, .rig-state, .shelf::before, .weeks::after { text-transform: lowercase; }
 /* proper nouns keep their real casing: MIT, not mit */
-.places b, .path b, .rail a, .thing-name { text-transform: none; }
+.places b, .path b, .rail a, .thing-name, .nav-experience a { text-transform: none; }
 .brand-name, .label, .nav-links, .theme-toggle, .rail a, .scroll-link, .toggle button, .places b, .places span, .facts span, .metric span,
 .grid-pair p, .dialog-evidence span, .path time, .motion-toggle, .contact-links, .thing-name, .scene-hint, .rig-state, .shelf::before, .weeks::after {
   font-family: var(--display); font-weight: 500; letter-spacing: 0; font-feature-settings: "lnum", "tnum";
@@ -114,6 +114,16 @@ h1, h2, h3, .lede, .brand-name, .label, .nav-links, .theme-toggle, .rail a, .scr
 .nav-links a { text-decoration: none; color: var(--soft); padding: 12px 0; transition: color .2s; }
 .nav-links a:hover { color: var(--ink); }
 .nav-links .nav-contact { color: var(--ink); box-shadow: inset 0 -2px 0 var(--butter); }
+/* a jump menu straight to any project, so a visitor doesn't have to scroll to find one */
+.nav-experience { position: relative; }
+.nav-experience summary { list-style: none; cursor: pointer; color: var(--soft); padding: 12px 0; transition: color .2s; }
+.nav-experience summary::-webkit-details-marker { display: none; }
+.nav-experience summary::after { content: "⌄"; margin-left: .5em; font-size: .8em; }
+.nav-experience:hover summary, .nav-experience[open] summary { color: var(--ink); }
+.nav-experience[open] summary::after { content: "⌃"; }
+.nav-experience ul { position: absolute; top: 100%; left: 0; margin: 6px 0 0; padding: 8px 0; list-style: none; background: var(--panel); border: 1px solid var(--line); min-width: 168px; z-index: 10; }
+.nav-experience a { display: block; padding: 8px 18px; text-decoration: none; color: var(--soft); font-size: .88rem; white-space: nowrap; }
+.nav-experience a:hover, .nav-experience a:focus-visible { color: var(--ink); background: rgba(var(--ink-rgb), .06); }
 /* light or dark: a labelled switch like the rest of the instruments; the square shows the page you would get */
 .theme-toggle { display: inline-flex; align-items: center; gap: .5em; min-height: 44px; color: var(--soft); transition: color .2s; }
 .theme-toggle::before { content: ""; width: .72em; height: .72em; background: var(--ink); box-shadow: 0 0 0 1px rgba(var(--ink-rgb), .45); }
@@ -345,6 +355,7 @@ h3 { font-size: 1.45rem; line-height: 1.15; letter-spacing: -.03em; }
   .stage-note { font-size: 1.25rem; max-width: 86vw; padding: .3em .7em .28em; background: rgba(var(--bg-rgb), .82); }
   .stage-note[data-kind="pixels"], .stage-note[data-kind="melt"] { font-size: 1.4rem; white-space: nowrap; }
   .nav-links a:not(.nav-contact) { display: none; }
+  .nav-experience { display: none; }
   .rail { display: none; }
   .footer { flex-direction: column; align-items: flex-start; left: 22px; right: 22px; }
   h1 { font-size: clamp(3.4rem, 17vw, 5rem); }

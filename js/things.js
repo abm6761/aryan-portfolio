@@ -12,10 +12,10 @@ const DEFS = [
   // dock: where it stands, in the same measure, once he and the things have drawn up into the top of the window above the copy
   // (the two on the right stand clear of where he gathers on his feet and sets off)
   { key: 'globe', name: 'The forecasts', story: 'forecast', chapter: 'forecast', w: 132, h: 132, table: { dx: -0.98, dy: 0.74, z: 0.45, s: 2 }, dock: { dx: -0.84, dy: 0.2 } },
-  { key: 'packets', name: 'The privacy study', story: 'privacy', chapter: 'research', w: 240, h: 96, table: { dx: 1.02, dy: -0.4, z: 0.6, s: 1.4 }, dock: { dx: -1.3, dy: -0.4 } },
+  { key: 'packets', name: 'The privacy study', story: 'privacy', chapter: 'research', w: 240, h: 96, table: { dx: 1.02, dy: -0.18, z: 0.6, s: 1.4 }, dock: { dx: -1.3, dy: -0.4 } },
   { key: 'drone', name: 'The drone rig', story: 'capstone', chapter: 'engineering', w: 250, h: 250, table: { dx: 1.14, dy: 0.27, z: 0.75, s: 1.2 }, dock: { dx: 1.38, dy: -0.12 } },
   { key: 'watch', name: 'The Kiwi watch', story: 'kiwi', chapter: 'kiwi', w: 128, h: 160, table: { dx: 0.5, dy: 0.96, z: 0.9, s: 1.5 }, dock: { dx: 1.86, dy: 0.22 } },
-  { key: 'pipeline', name: 'The job pipeline', story: 'pipeline', chapter: 'pipeline', w: 240, h: 96, table: { dx: 1.8, dy: 0.62, z: 0.5, s: 1.1 }, dock: { dx: -1.9, dy: -0.05 } },
+  { key: 'pipeline', name: 'The job pipeline', story: 'pipeline', chapter: 'pipeline', w: 240, h: 96, table: { dx: 1.45, dy: 0.68, z: 0.5, s: 1.05 }, dock: { dx: -1.9, dy: -0.05 } },
 ];
 // where each stands in the row beside him (x: from the centre line, in his seated widths) and its turn to come down (n)
 const LINE = { globe: { x: -1.5, n: 1 }, packets: { x: -2.9, n: 3 }, watch: { x: 1.4, n: 0, up: 0.16 }, drone: { x: 2.55, n: 2 }, pipeline: { x: -4.3, n: 4 } };   // up: the watch's strap hangs below its box, so it stands that much higher (in its heights)
