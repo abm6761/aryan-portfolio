@@ -109,7 +109,7 @@
             <pre id="ascii-chart" aria-label="Third-party request rates in the 2025 study: Grok 35.9%, Claude 14.0%, ChatGPT 13.7%, Gemini 9.0%"></pre>
             <figcaption>1,839 HTTP / HTTPS requests captured. Historical measurements, not a live audit. Request destinations do not establish what conversation content was shared.</figcaption>
           </figure>
-          <p class="footnote">Co-authored with Leo Anthony Celi (MIT) and Joseph Sakran (Johns Hopkins).</p>
+          <p class="footnote">Co-authored with Leo Anthony Celi (MIT) and Joseph Sakran (Johns Hopkins). A second paper from this research track, on what vendors actually do with the data they collect, is in preprint.</p>
           <button class="text-link" data-story="privacy" type="button">Read the study <span aria-hidden="true">↗</span></button>
         </div>
       </section>
@@ -275,9 +275,14 @@
       <h3>Beyond the algorithm</h3>
       <p>I helped lead Kiwi One from concept to launch, secured four enterprise pilots within a month, and owned the product work around the model: firmware validation, hardware QA, onboarding, customer conversations, and the roadmap.</p>
       <p>I grew the engineering team from two to eight, personally interviewing and selecting every engineer. In July 2026, my role expanded to sharing interim co-CEO responsibilities with the founder.</p>
+      <h3>Running the company day to day</h3>
+      <p>With no dedicated sales or ops hire, a lot of what keeps a fifteen-person startup moving fell to me directly. I negotiated hardware sourcing across three countries myself, evaluating suppliers in China, India, and Brazil to land the deal we shipped on. I rebuilt how the team tracked work, twice, migrating us through three different tools before settling on Jira and cutting cross-team blockers by about 40% with async check-ins instead of standing meetings.</p>
+      <p>One deal taught me more than the ones that closed cleanly. An early target facility couldn’t use Kiwi the way we’d designed it: no dedicated nursing staff, so the clinical monitoring workflow didn’t fit. Instead of writing it off, I repositioned the offer as a consumer device families could buy directly, so relatives and outside doctors could see the same vitals remotely. That reframed a mismatch into a second, distinct way to reach customers.</p>
+      <p>At Carlton Willard, an assisted-living facility in Bedford, MA, the nurse supervisor overseeing our pilot put the case plainly: <em>“Kiwi would be a big help. It would ease the nurses’ workload to not have to physically take vitals so often and it would save money. We could use less nurses.”</em> That is the kind of validation a spec sheet can’t give you.</p>
+      <p>I also directed the build of an agentic voice assistant for the watch: a wake-word system feeding a tool-use loop that could check something or set a reminder, not just answer a question, backed by a retrieval pipeline on AWS. In testing, it got the right result on the first try roughly 9 times out of 10. It’s built, tested, and shelved for now, waiting on the right moment to ship. Separately, I led the raise conversations with our investors as we moved toward a second funding round, after the first brought in $85,000 through Wefunder.</p>
       <div class="dialog-caveat">
         <p class="label">Where the evidence stops</p>
-        <p>The fall-detection study involved ten working-age adults, not the elderly target population. The 450× reduction refers specifically to wrist-posture false alarms against the naive baseline. It is not a claim of clinical validation or a reduction in every kind of false alarm.</p>
+        <p>The fall-detection study involved ten working-age adults, not the elderly target population. The 450× reduction refers specifically to wrist-posture false alarms against the naive baseline. It is not a claim of clinical validation or a reduction in every kind of false alarm. The voice assistant’s “9 out of 10” figure is a testing result, not a shipped-product statistic, and the vendor and fundraising work describes my role in those processes, not deal terms I’m able to disclose.</p>
       </div>
     </template>
     <template id="story-privacy">
@@ -301,6 +306,8 @@
       <h3>What we found</h3>
       <p>The published snapshot recorded third-party request rates of 35.9% for Grok, 14.0% for Claude, 13.7% for ChatGPT, and 9.0% for Gemini. Analytics and tracking domains were contacted by all four platforms.</p>
       <p>The paper was co-authored with Leo Anthony Celi at MIT and Joseph Sakran at Johns Hopkins, among the research team.</p>
+      <h3>A second paper, still in preprint</h3>
+      <p>The same research track led to a second study, using Burp Suite to compare what data-sharing vendors disclose in policy against what their traffic actually does. It hasn’t cleared review yet, so I’m naming it here without numbers until it has.</p>
       <div class="dialog-caveat">
         <p class="label">What this does and doesn’t establish</p>
         <p>These are historical observations from the study, not a current rating of the platforms. A request reaching a third party does not, on its own, prove that a conversation’s contents were shared. The finding concerns network traffic and the privacy questions it raises.</p>
@@ -359,11 +366,13 @@
       <p>Determine an aircraft’s center of gravity and moments of inertia without a full laboratory. Our approach combined load-cell readings with a suspended pendulum mechanism: twist the assembly, measure its oscillation, and calculate inertia.</p>
       <h3>My contribution</h3>
       <p>I led the six-person team across hardware, electronics, and software, organizing checkpoints and demonstrations around the sponsors’ needs. I developed embedded C firmware on a Teensy 4.1, with an LCD and keypad interface, sensor processing, and microSD logging. I also built a Python visualization tool for dynamic testing.</p>
-      <p>The frame used aluminum T-slots, simulated for structural integrity, with 3D-printed components and five integrated sensors. We validated load-cell readings with calibrated barbell weights and worked from simple test geometries toward the full apparatus.</p>
+      <p>The frame used aluminum T-slots, simulated for structural integrity, with 3D-printed components and five integrated sensors. We validated load-cell readings with calibrated barbell weights and worked from simple test geometries toward the full apparatus. Three prototypes went through this cycle, each round fixing what the last one got wrong, before we trusted the design enough to call it done.</p>
       <div class="dialog-caveat">
         <p class="label">A sponsored academic project</p>
         <p>This was a Penn State capstone with Lockheed Martin engineering sponsors, not Lockheed Martin employment. The result was a functional prototype delivered to the project specification, not an industry-certified measuring instrument.</p>
       </div>
+      <a class="text-link" href="https://sites.psu.edu/lfshowcasefa24/2024/12/10/uav-mass-properties-testing-apparatus/" target="_blank" rel="noopener noreferrer">See the project on Penn State’s Learning Factory showcase <span class="arrow" aria-hidden="true">↗</span>
+      </a>
     </template>
     <template id="story-pipeline">
       <p class="label">Independent project / Ongoing</p>

@@ -331,13 +331,15 @@ document.querySelectorAll('.blocks').forEach((grid) => {
 // the honest org chart: every line is in his verified work history
 const signed = document.getElementById('signed');
 const SIGNATURE = 'M30 22C24 12 8 16 6 30C5 42 18 42 25 28C27 23 29 18 29 17C27 28 26 40 33 39C39 38 42 27 45 20C46 17 48 17 48 21C48 25 47 30 47 30C49 24 54 17 59 19C62 21 60 25 63 26C67 27 70 22 72 20C71 27 71 37 77 37C83 37 87 27 89 19C88 32 88 47 82 54C78 58 73 55 76 49C80 42 93 38 99 30C103 25 106 20 109 22C103 17 94 22 94 31C94 40 103 38 108 29C110 25 111 21 111 20C110 28 110 38 116 38C121 37 123 29 126 22C126 28 125 34 125 37C127 28 132 19 138 21C143 23 139 33 142 37C144 39 147 37 148 35';
-['Roadmap for both devices', 'Hardware check on every watch', 'Every supplier call', 'Every hiring interview', 'Sprint planning',
-  'The company’s first cloud setup', 'Leading the investor meetings', 'Writing and sending the emails'].forEach((job, n) => {
+const SIGNED_JOBS = ['Roadmap for both devices', 'Hardware check on every watch', 'Every supplier call', 'Every hiring interview', 'Sprint planning',
+  'The company’s first cloud setup', 'Leading the investor meetings', 'Writing and sending the emails', 'Sourcing hardware across three countries',
+  'Rebuilding how the team tracks work', 'The pivot that saved a mismatched deal'];
+SIGNED_JOBS.forEach((job, n) => {
   const li = document.createElement('li');
   li.style.setProperty('--n', n);
   // one pen stroke, written as "aryan"; each line gets its own slant and size so no two match
   li.style.setProperty('--tilt', `${-5 + (n * 37 % 7)}deg`);
-  li.innerHTML = `<span>${job}</span><b>${n === 7 ? 'also ' : ''}<svg viewBox="0 0 148 60" role="img" aria-label="Aryan" style="width:${70 + (n * 13 % 5) * 3}px"><path pathLength="1" d="${SIGNATURE}"/></svg></b>`;
+  li.innerHTML = `<span>${job}</span><b>${n === SIGNED_JOBS.length - 1 ? 'also ' : ''}<svg viewBox="0 0 148 60" role="img" aria-label="Aryan" style="width:${70 + (n * 13 % 5) * 3}px"><path pathLength="1" d="${SIGNATURE}"/></svg></b>`;
   signed.append(li);
 });
 
