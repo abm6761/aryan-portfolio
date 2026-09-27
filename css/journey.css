@@ -60,7 +60,7 @@ h1, h2, h3, .lede, .brand-name, .label, .nav-links, .theme-toggle, .rail a, .scr
 .grid-pair p, .dialog-evidence, .dialog-lede, .path time, .path b, .motion-toggle, .contact-links, .stage-note, .thing-name,
 .scene-hint, .rig-state, .shelf::before, .weeks::after { text-transform: lowercase; }
 /* proper nouns keep their real casing: MIT, not mit */
-.places b, .path b { text-transform: none; }
+.places b, .path b, .rail a, .thing-name { text-transform: none; }
 .brand-name, .label, .nav-links, .theme-toggle, .rail a, .scroll-link, .toggle button, .places b, .places span, .facts span, .metric span,
 .grid-pair p, .dialog-evidence span, .path time, .motion-toggle, .contact-links, .thing-name, .scene-hint, .rig-state, .shelf::before, .weeks::after {
   font-family: var(--display); font-weight: 500; letter-spacing: 0; font-feature-settings: "lnum", "tnum";

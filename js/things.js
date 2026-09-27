@@ -15,9 +15,10 @@ const DEFS = [
   { key: 'packets', name: 'The privacy study', story: 'privacy', chapter: 'research', w: 240, h: 96, table: { dx: 1.02, dy: -0.4, z: 0.6, s: 1.4 }, dock: { dx: -1.3, dy: -0.4 } },
   { key: 'drone', name: 'The drone rig', story: 'capstone', chapter: 'engineering', w: 250, h: 250, table: { dx: 1.14, dy: 0.27, z: 0.75, s: 1.2 }, dock: { dx: 1.38, dy: -0.12 } },
   { key: 'watch', name: 'The Kiwi watch', story: 'kiwi', chapter: 'kiwi', w: 128, h: 160, table: { dx: 0.5, dy: 0.96, z: 0.9, s: 1.5 }, dock: { dx: 1.86, dy: 0.22 } },
+  { key: 'pipeline', name: 'The job pipeline', story: 'pipeline', chapter: 'pipeline', w: 240, h: 96, table: { dx: 1.8, dy: 0.62, z: 0.5, s: 1.1 }, dock: { dx: -1.9, dy: -0.05 } },
 ];
 // where each stands in the row beside him (x: from the centre line, in his seated widths) and its turn to come down (n)
-const LINE = { globe: { x: -1.5, n: 1 }, packets: { x: -2.9, n: 3 }, watch: { x: 1.4, n: 0, up: 0.16 }, drone: { x: 2.55, n: 2 } };   // up: the watch's strap hangs below its box, so it stands that much higher (in its heights)
+const LINE = { globe: { x: -1.5, n: 1 }, packets: { x: -2.9, n: 3 }, watch: { x: 1.4, n: 0, up: 0.16 }, drone: { x: 2.55, n: 2 }, pipeline: { x: -4.3, n: 4 } };   // up: the watch's strap hangs below its box, so it stands that much higher (in its heights)
 const DOCK_SIZE = 0.5;   // their size above the copy, against their size on the table
 const REACH = 130;       // how near the pointer has to come, at 1440 by 900, for him and the thing to notice
 const RES = 2;   // the canvases are drawn at twice their box, so they stay sharp at table size
@@ -171,6 +172,32 @@ function makePackets() {
   };
 }
 
+/* ---------------- the job pipeline: career pages read on a schedule, checked, then queued for his review ---------------- */
+function makePipeline() {
+  const dots = []; let clock = 0;
+  return {
+    draw(x, W, H, now, dt, live) {
+      const k = W / 240; x.save(); x.scale(k, k);
+      x.font = '700 9px "Space Mono", monospace'; x.textBaseline = 'middle'; x.textAlign = 'center'; x.lineWidth = 1;
+      const box = (bx, by, bw, bh, label, col) => { x.strokeStyle = col; x.strokeRect(bx + 0.5, by + 0.5, bw, bh); x.fillStyle = col; x.fillText(label, bx + bw / 2, by + bh / 2 + 1); };
+      box(4, 34, 68, 28, 'career pages', `rgba(${INK.rgb},.88)`); box(89, 34, 56, 28, 'checked', `rgba(${INK.rgb},.88)`); box(168, 34, 68, 28, 'queued', INK.butter);
+      x.strokeStyle = `rgba(${INK.rgb},${INK.light ? 0.4 : 0.22})`; x.setLineDash([2, 3]);
+      x.beginPath(); x.moveTo(72, 48); x.lineTo(89, 48); x.stroke();
+      x.beginPath(); x.moveTo(145, 48); x.lineTo(168, 48); x.stroke();
+      x.setLineDash([]);
+      // one steady stream, reading on a schedule rather than a live feed: illustrative, not a measured rate
+      if (live) { clock += dt; while (clock > 0.7) { clock -= 0.7; dots.push({ t: 0 }); } }
+      for (let i = dots.length - 1; i >= 0; i--) {
+        const d = dots[i]; if (live) d.t += dt * 0.32;
+        if (d.t > 1) { dots.splice(i, 1); continue; }
+        const px = lerp(72, 168, d.t);
+        x.fillStyle = d.t > 0.5 ? INK.butter : INK.solid; x.fillRect(px - 1.5, 46.5, 3, 3);
+      }
+      x.restore();
+    },
+  };
+}
+
 export async function createThings({ stage, chapters, openStory, reduced }) {
   const shelf = document.getElementById('shelf'), scene = document.getElementById('table-scene');
   try { await document.fonts.load('700 9px "Space Mono"'); } catch { /* falls back to monospace */ }
@@ -193,7 +220,7 @@ export async function createThings({ stage, chapters, openStory, reduced }) {
     const seat = document.createElement('i'); seat.className = 'table-seat'; seat.style.aspectRatio = `${def.w} / ${def.h}`; scene.append(seat);
     const thing = { ...def, i, el, canvas, home, seat, slot: document.querySelector(`[data-slot="${def.key}"]`), ci: def.chapter ? indexOf(def.chapter) : -1, mode: 'shelf', lift: 0, back: 0, seen: -1 };
     thing.ctx = def.key === 'watch' ? null : canvas.getContext('2d');
-    thing.painter = def.key === 'drone' ? makeDrone(thing) : def.key === 'globe' ? makeGlobe() : def.key === 'packets' ? makePackets() : null;
+    thing.painter = def.key === 'drone' ? makeDrone(thing) : def.key === 'globe' ? makeGlobe() : def.key === 'packets' ? makePackets() : def.key === 'pipeline' ? makePipeline() : null;
     el.addEventListener('pointerenter', () => { hovered = thing; });
     el.addEventListener('pointerleave', () => { if (hovered === thing) hovered = null; });
     el.addEventListener('focus', () => { focused = thing; });
