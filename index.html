@@ -173,6 +173,21 @@
         </div>
       </section>
 
+      <section class="chapter" id="pipeline" data-state="ascii" data-side="left" data-rail="Pipeline" data-note="Runs while I sleep." aria-labelledby="pipeline-title">
+        <div class="copy">
+          <p class="label">Independent project / AI systems design</p>
+          <h2 id="pipeline-title">A system that job-hunts on a schedule.</h2>
+          <p class="body">Most of a job search is repeated research: which companies are actually hiring, whether a posting is still open, what a resume should emphasize for it. I designed a system to do that continuously instead of doing it by hand, one tab at a time.</p>
+          <p class="body">It reads company career pages and hiring signals on a fixed schedule, checks new roles against a target list I wrote, tailors a resume for anything that qualifies, and keeps a running record of every company and every application in a database I built for it.</p>
+          <p class="body">It never applies or sends a message on its own. Every application and every outreach note waits for me to read and approve it first.</p>
+          <div class="facts">
+            <div><b>Daily</b><span>Runs on a fixed schedule, unattended</span></div>
+            <div><b>Zero</b><span>Applications or messages sent without my review</span></div>
+          </div>
+          <button class="text-link" data-story="pipeline" type="button">How it works <span aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+
       <section class="chapter summary" id="about" data-state="desk" data-side="centre" data-anchor="top" data-rail="The person" data-note="Mostly, other people." aria-labelledby="about-title">
         <div class="summary-first">
           <div class="summary-head">
@@ -187,6 +202,7 @@
             <p class="body">At Kiwi, that meant writing the roadmap, hiring engineers, talking to suppliers, and testing and packing the watches we shipped myself.</p>
             <p class="body">It also meant sitting with elderly users and helping them get comfortable with a new device. <strong>The model only helps if they keep the watch on.</strong></p>
             <p class="body">In July 2026 I took on interim co-CEO responsibilities, shared with the founder. I still check every watch before it ships.</p>
+            <p class="body">Since August 2026 I’ve also been a product manager at Stellus Rx, working remotely alongside Kiwi.</p>
             <p class="footnote">B.S. Computer Engineering, Penn State. Minors in cybersecurity and economics.</p>
             <button class="text-link" data-story="path" type="button">The path so far <span aria-hidden="true">↗</span></button>
           </div>
@@ -349,6 +365,33 @@
         <p>This was a Penn State capstone with Lockheed Martin engineering sponsors, not Lockheed Martin employment. The result was a functional prototype delivered to the project specification, not an industry-certified measuring instrument.</p>
       </div>
     </template>
+    <template id="story-pipeline">
+      <p class="label">Independent project / Ongoing</p>
+      <h2 id="dialog-title">A pipeline,<br>not a bot.</h2>
+      <p class="dialog-lede">An AI-agent system I designed and direct to run my own job search, built the way I’d build a product: with a spec, a safety rail, and a record of every decision.</p>
+      <div class="dialog-evidence">
+        <div>
+          <b>4</b>
+          <span>Independent routines, running daily</span>
+        </div>
+        <div>
+          <b>Hourly</b>
+          <span>A separate watcher checking career pages for new postings</span>
+        </div>
+        <div>
+          <b>11+</b>
+          <span>Company and hiring sources tracked every day</span>
+        </div>
+      </div>
+      <h3>What it does</h3>
+      <p>Every day it sources roles from company career pages, job boards, and hiring signals on LinkedIn, screens them against a target list I keep, and tailors a resume for anything that clears the bar. A separate hourly watcher checks a rotating set of company career pages directly and emails me the moment a role opens.</p>
+      <h3>What I own</h3>
+      <p>I wrote the targeting rules, the resume format, and the safety constraints, and I keep a database of every company and every application it has ever touched. Nothing is submitted and no message is sent without me reading and approving it first: the system finds and prepares, I decide.</p>
+      <div class="dialog-caveat">
+        <p class="label">How it’s actually built</p>
+        <p>I designed and direct this system; I didn’t hand-write its code. It runs on Claude, directed through detailed specifications I wrote and keep revising as I find its mistakes. That’s closer to how I’d run a product than to software engineering, and I’d rather say so than let the site imply otherwise.</p>
+      </div>
+    </template>
     <template id="story-path">
       <p class="label">Aryan Mehta / The roles he carried</p>
       <h2 id="dialog-title">The path<br>so far.</h2>
@@ -359,6 +402,7 @@
         <li><time>2024-2025</time><b>Prognosis</b><span>Founder & product manager</span></li>
         <li><time>Joined 2024</time><b>Kiwi Senior Health</b><span>Founding product manager</span></li>
         <li><time>July 2026</time><b>Interim co-CEO</b><span>Responsibilities shared with the founder</span></li>
+        <li><time>Aug 2026</time><b>Stellus Rx</b><span>Product manager, remote</span></li>
       </ol>
       <p>B.S. Computer Engineering, Penn State, with minors in cybersecurity and economics.</p>
     </template>
